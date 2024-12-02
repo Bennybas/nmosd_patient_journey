@@ -6,7 +6,7 @@ import {
   ClipboardCheck, AlertTriangle, ChevronDown, ChevronUp,
   Bold
 } from 'lucide-react';
-import SankeyDiagramG from '../sankey/sankeyDiagG';
+import SankeyDiagramF from '../sankey/sankeyF';
 
 
 const France = ({ stage, metrics, barriers, findings }) => {
@@ -54,6 +54,7 @@ const France = ({ stage, metrics, barriers, findings }) => {
       return (
         <div className="w-full space-y-6">
           <h3 className="text-lg font-semibold text-gray-800">{title}</h3>
+          < SankeyDiagramF />
           
         </div>
       )

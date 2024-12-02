@@ -2,7 +2,7 @@ export const journeyDataF = [
   {
     "number": 1,
     "title": "Initial Assessment",
-    "description": "Critical period where primary care physicians in France play a key role in the initial detection and assessment of neurological symptoms.",
+    "description": "Critical period where primary care physicians  play a key role in the initial detection and assessment of neurological symptoms.",
     "actions": [
       {
         "name": "Early Signs of Neurological Symptoms",
@@ -22,20 +22,19 @@ export const journeyDataF = [
       }
     ],
     "metrics": [
-      { "value": "3.27", "label": "Overall Referral Rate in France" },
-      { "value": "99", "label": "AQP4-IgG Screening Rate in France" },
-      { "value": "1 to 3 years", "label": "Age Statistics: Range in France" }
+      { "value": "11.7%", "label": "Overall Referral Rate" },
+      { "value": "100%", "label": "AQP4-IgG Screening Rate" },
+      { "value": "26 to 84 years", "label": "Age Statistics: Range " },
+      { "value": "11.7%" , "label": "Mis-Diagnosis Rate" },
+      { "value": "819.5 days" , "label": "Average Delay Due to Mis-diagnosis" },
     ],
     "barriers": {
-      "physician": [
+      "physician": [  
         {
           "subpoints": [
             {
-              "text": "Delayed referrals due to symptom overlap with common conditions, contributing to a median referral delay of 5.4 months."
+              "text": "Delayed referrals due to symptom overlap with common conditions, contributing to a median referral delay of 26 months."
             },
-            {
-              "text": "Insufficient knowledge of NMOSD among PCPs leads to inconsistent use of advanced diagnostics."
-            }
           ]
         }
       ],
@@ -43,10 +42,7 @@ export const journeyDataF = [
         {
           "subpoints": [
             {
-              "text": "Referral systems lack standardization, resulting in cases requiring multiple consultations before reaching a neurologist."
-            },
-            {
-              "text": "Access to AQP4-IgG tests is uneven, with rural areas reporting a significant test availability gap."
+              "text": "Access to AQP4-IgG tests is uneven, with Tier B hospitals facing an average delay of 46 days, compared to 15 days for Tier C hospitals, highlighting a significant gap in diagnostic access."
             }
           ]
         }
@@ -55,11 +51,8 @@ export const journeyDataF = [
         {
           "subpoints": [
             {
-              "text": "Patients' lack of awareness of NMOSD symptoms leads to an average delay before seeking medical attention."
+              "text": "Patients' lack of awareness of NMOSD symptoms leads to an delay."
             },
-            {
-              "text": "Financial constraints delay diagnostic testing for uninsured or underinsured patients."
-            }
           ]
         }
       ]
@@ -68,19 +61,19 @@ export const journeyDataF = [
   {
     "number": 2,
     "title": "Diagnosis Confirmation",
-    "description": "Detailed diagnostic process in France including the use of biomarkers and differential diagnosis methods for NMOSD.",
+    "description": "Detailed diagnostic process  including the use of biomarkers and differential diagnosis methods for NMOSD.",
     "actions": [
       {
-        "name": "Consultation with a Neurologist or Neuromuscular Specialist",
+        "name": "Consultation with a Neurologist",
         "content": "Detailed evaluation of neurological symptoms, clinical history, and ruling out other possible diagnoses such as MS."
-      },
-      {
-        "name": "AQP4-IgG Antibody Testing",
-        "content": "Blood test to check for the presence of AQP4-IgG antibodies, a key biomarker for NMOSD diagnosis."
       },
       {
         "name": "MRI for Neurological Involvement",
         "content": "MRI scans of the brain and spinal cord to detect lesions, transverse myelitis, or optic neuritis typically seen in NMOSD."
+      },
+      {
+        "name": "AQP4-IgG Antibody Testing",
+        "content": "Blood test to check for the presence of AQP4-IgG antibodies, a key biomarker for NMOSD diagnosis."
       },
       {
         "name": "Diagnosis Confirmation and Staging",
@@ -88,22 +81,19 @@ export const journeyDataF = [
       }
     ],
     "metrics": [
-      { "value": "76.04%", "label": "AQP4-IgG Positivity Rate in France" },
-      { "value": "57.14%", "label": "MRI Confirmation Rate in France" },
-      { "value": "3.0", "label": "Average Relapse in France" },
-      { "value": "59.53%", "label": "Average Relapse After Treatment in France" },
-      { "value": "40.47%", "label": "Average Relapse Before Treatment in France" }
+      { "value": "76%", "label": "AQP4-IgG Positivity Rate " },
+      { "value": "100%", "label": "MRI Confirmation Rate" },
+      { "value": "", "label": "Average Relapse After Treatment " },
+      { "value": "", "label": "Average Relapse Before Treatment " }
     ],
     "barriers": {
       "physician": [
         {
           "subpoints": [
             {
-              "text": "Misdiagnosis as MS occurs in NMOSD cases due to overlapping symptoms and lack of clarity in diagnostic criteria."
+              "text": "Misdiagnosis as MS occurs in 11.7% of NMOSD cases due to overlapping symptoms and lack of clarity in diagnostic criteria."
             },
-            {
-              "text": "Over-reliance on MRI alone leads to missed NMOSD diagnoses in AQP4-IgG-negative cases."
-            }
+            
           ]
         }
       ],
@@ -111,11 +101,8 @@ export const journeyDataF = [
         {
           "subpoints": [
             {
-              "text": "Insufficient integration between primary and tertiary care causes diagnostic delays."
+              "text": "Over-reliance on MRI alone leads to missed NMOSD diagnoses in AQP4-IgG-negative cases around 24%."
             },
-            {
-              "text": "Laboratory backlogs result in AQP4-IgG test turnaround times exceeding 14 days for a significant percentage of patients."
-            }
           ]
         }
       ],
@@ -123,10 +110,7 @@ export const journeyDataF = [
         {
           "subpoints": [
             {
-              "text": "Patients delay MRI follow-up appointments, leading to diagnostic delays."
-            },
-            {
-              "text": "Fear of invasive procedures discourages patients from completing necessary tests."
+              "text": ""
             }
           ]
         }
@@ -136,7 +120,7 @@ export const journeyDataF = [
   {
     "number": 3,
     "title": "Treatment Initiation and Monitoring Outcomes",
-    "description": "Long-term treatment, monitoring, and management of NMOSD disease in France.",
+    "description": "Long-term treatment, monitoring, and management of NMOSD disease .",
     "actions": [
       {
         "name": "Treatment Initiation",
@@ -156,18 +140,15 @@ export const journeyDataF = [
       }
     ],
     "metrics": [
-      { "value": "79%", "label": "Treatment Duration Rate in France" },
-      { "value": "4.29", "label": "Average Treatment Cycles in France" }
+      { "value": "440.1 Days", "label": "Average Treatment Duration" },
+      { "value": "1.82", "label": "Average Treatment Cycles " }
     ],
     "barriers": {
       "physician": [
         {
           "subpoints": [
             {
-              "text": "Lack of training in NMOSD-specific treatments reduces adherence to guidelines, affecting physicians."
-            },
-            {
-              "text": "Inconsistent monitoring protocols result in delayed treatment adjustments for patients."
+              "text": "58% of severe patients are receiving treatment in Tier B and C hospitals, limiting access to specialized care and advanced treatments, which delays diagnosis and relapse management."
             }
           ]
         }
@@ -176,10 +157,7 @@ export const journeyDataF = [
         {
           "subpoints": [
             {
-              "text": "High cost of therapies results in eligible patients not initiating treatment."
-            },
-            {
-              "text": "Limited access to monoclonal antibodies outside major urban centers affects timely initiation for patients."
+              "text": "35% of patients experienced relapses, indicating challenges in achieving stable disease control."
             }
           ]
         }
@@ -188,10 +166,7 @@ export const journeyDataF = [
         {
           "subpoints": [
             {
-              "text": "Side effect concerns lead to patients discontinuing treatment prematurely."
-            },
-            {
-              "text": "Missed follow-up appointments due to logistical challenges cause delays in relapse management."
+              "text": "35% of patients experienced sight loss, and all of them developed it after starting treatment."
             }
           ]
         }

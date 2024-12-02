@@ -2,24 +2,38 @@ import React, { useState } from 'react';
 import JourneyStage from '../JourneyStage/JourneyStage';
 import { journeyData } from '../../Germandata/journeyData';
 import { journeyDataF } from '../../Francedata/journeyDataF';
+import { ArrowLeft } from 'lucide-react';
+import { Brain, Activity, Eye, User, Bell, Search, ChevronLeft, Pill } from 'lucide-react'
 
 const NmosD = () => {
   const [selectedCountry, setSelectedCountry] = useState('germany');
+  const [isLoading, setIsLoading] = useState(false);  // Add loading state
 
   const toggleCountry = () => {
     setSelectedCountry(selectedCountry === 'germany' ? 'france' : 'germany');
+
   };
+  const handleBackClick = () => {
+    setIsLoading(true);
+    window.location.href = '';
+  };
+
+  
 
   return (
     <div className="max-w-7xl mx-auto p-6">
-      <div className="mb-8">
-        <h1 className="text-2xl font-bold mb-2">NMOSD Patient Journey</h1>
-        <p className="text-gray-600">
-          Comprehensive analysis of diagnosis, treatment, and care pathway challenges
-        </p>
+      <div className="flex items-center mb-4">
+      <button 
+          onClick={handleBackClick} 
+          className="p-2 hover:bg-gray-100 rounded-full transition-colors flex items-center"
+          aria-label="Go back"
+        >
+          <ArrowLeft className="text-gray-700 w-6 h-6" />
+        </button>
+        <h1 className="text-xl font-bold ml-4">NMOSD Patient Journey</h1>
       </div>
 
-      <div className="absolute top-11 right-20 z-10">
+      <div className="absolute top-8 right-20 z-10">
         <button
           onClick={toggleCountry}
           className="relative flex items-center bg-gray-100 border border-gray-200 rounded-full p-1 w-40 h-10 shadow-sm transition-all duration-300 hover:shadow-md focus:outline-none focus:ring-2 focus:ring-blue-500/50"
@@ -76,6 +90,15 @@ const NmosD = () => {
               selectedCountry={selectedCountry}
             />
           ))}
+
+{isLoading && (
+        <div className="fixed top-0 left-0 w-full h-full bg-gray-800 opacity-50 flex items-center justify-center z-50">
+          <div className="text-white text-3xl flex items-center space-x-4">
+            <Pill className="animate-spin w-12 h-12" /> {/* Use the rotating Pill icon */}
+            <span>Loading...</span>
+          </div>
+        </div>
+      )}
       </div>
     </div>
   );

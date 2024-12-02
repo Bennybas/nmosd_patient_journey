@@ -24,7 +24,7 @@ export const journeyData = [
     "metrics": [
       { "value": "12%", "label": "Overall Referral Rate" },
       { "value": "100%", "label": "AQP4-IgG Screening Rate" },
-      { "value": "6 to 82 years", "label": "Age Statistics: Range " },
+      { "value": "20 to 71 years", "label": "Age Statistics: Range " },
       { "value": "28%" , "label": "Mis-Diagnosis Rate" },
       { "value": "765.5 days" , "label": "Average Delay Due to Mis-diagnosis" },
     ],
@@ -144,8 +144,8 @@ export const journeyData = [
       }
     ],
     "metrics": [
-      { "value": "79%", "label": "Treatment Duration Rate " },
-      { "value": "4.29", "label": "Average Treatment Cycles " }
+      { "value": "725.24 Days", "label": "Average Treatment Duration" },
+      { "value": "2.76", "label": "Average Treatment Cycles " }
     ],
     "barriers": {
       "physician": [

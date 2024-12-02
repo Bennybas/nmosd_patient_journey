@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from "react";
 import * as d3 from "d3";
 import { sankey, sankeyLinkHorizontal } from "d3-sankey";
 
-const SankeyDiagramG = () => {
+const SankeyDiagramF = () => {
   const svgRef = useRef(null);
 
   useEffect(() => {
@@ -39,24 +39,24 @@ const SankeyDiagramG = () => {
     const data = {
       nodes: [
         { name: "Patients", value: 100 },
-        { name: "Male", value: 24 },
-        { name: "Female", value: 76 },
-        { name: "Ophthalmologist", value: 32 },
-        { name: "Neurologist", value: 68 },
-        { name: "Wheelchair or Sightloss", value: 64 },
-        { name: "Mild Symptoms", value: 36 },
+        { name: "Male", value: 35 },
+        { name: "Female", value: 65 },
+        { name: "Ophthalmologist", value: 35 },
+        { name: "Neurologist", value: 65 },
+        { name: "Wheelchair or Sightloss", value: 35 },
+        { name: "Mild Symptoms", value: 65 },
       ],
       links: [
-        { source: 0, target: 1, value: 24 },
-        { source: 0, target: 2, value: 76 },
-        { source: 1, target: 3, value: 8 },
-        { source: 1, target: 4, value: 16 },
-        { source: 2, target: 3, value: 24 },
-        { source: 2, target: 4, value: 48 },
-        { source: 3, target: 5, value: 16 },
-        { source: 3, target: 6, value: 16 },
-        { source: 4, target: 5, value: 48 },
-        { source: 4, target: 6, value: 20 },
+        { source: 0, target: 1, value: 35 },
+        { source: 0, target: 2, value: 65 },
+        { source: 1, target: 3, value: 17 },
+        { source: 1, target: 4, value: 18 },
+        { source: 2, target: 3, value: 18 },
+        { source: 2, target: 4, value: 47 },
+        { source: 3, target: 5, value: 11 },
+        { source: 3, target: 6, value: 24 },
+        { source: 4, target: 5, value: 11 },
+        { source: 4, target: 6, value: 41 },
       ],
     };
 
@@ -176,4 +176,4 @@ const SankeyDiagramG = () => {
   return <svg ref={svgRef}></svg>;
 };
 
-export default SankeyDiagramG;
+export default SankeyDiagramF;
