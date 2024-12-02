@@ -15,7 +15,7 @@ const NmosD = () => {
   };
   const handleBackClick = () => {
     setIsLoading(true);
-    window.location.href = '';
+    window.location.href = 'https://chryselys-pj-landing.onrender.com';
   };
 
   
