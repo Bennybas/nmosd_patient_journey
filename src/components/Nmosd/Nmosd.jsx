@@ -3,22 +3,22 @@ import JourneyStage from '../JourneyStage/JourneyStage';
 import { journeyData } from '../../Germandata/journeyData';
 import { journeyDataF } from '../../Francedata/journeyDataF';
 import { ArrowLeft } from 'lucide-react';
-import { Brain, Activity, Eye, User, Bell, Search, ChevronLeft, Pill } from 'lucide-react'
+import {  Pill } from 'lucide-react'
 
 const NmosD = () => {
   const [selectedCountry, setSelectedCountry] = useState('germany');
-  const [isLoading, setIsLoading] = useState(false);  // Add loading state
+ 
 
   const toggleCountry = () => {
     setSelectedCountry(selectedCountry === 'germany' ? 'france' : 'germany');
 
   };
+  const [isLoading, setIsLoading] = useState(false);  // Add loading state
   const handleBackClick = () => {
     setIsLoading(true);
     window.location.href = '';
   };
 
-  
 
   return (
     <div className="max-w-7xl mx-auto p-6">
@@ -36,7 +36,7 @@ const NmosD = () => {
       <div className="absolute top-8 right-20 z-10">
         <button
           onClick={toggleCountry}
-          className="relative flex items-center bg-gray-100 border border-gray-200 rounded-full p-1 w-40 h-10 shadow-sm transition-all duration-300 hover:shadow-md focus:outline-none focus:ring-2 focus:ring-blue-500/50"
+          className="relative flex items-center bg-gray-100 border border-gray-200 rounded-full p-1 w-44 h-10 shadow-sm transition-all duration-300 hover:shadow-md focus:outline-none focus:ring-2 focus:ring-blue-500/50"
           aria-label="Toggle Country"
         >
           <div

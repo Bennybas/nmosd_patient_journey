@@ -200,7 +200,7 @@ const edges = [
   }
 }));
 
-const TreatmentSwitch = () => {
+const TreatmentSwitchG = () => {
   const [flowNodes, setNodes, onNodesChange] = useNodesState(nodes);
   const [flowEdges, setEdges, onEdgesChange] = useEdgesState(edges);
 
@@ -282,4 +282,4 @@ const TreatmentSwitch = () => {
   );
 };
 
-export default TreatmentSwitch;
+export default TreatmentSwitchG;

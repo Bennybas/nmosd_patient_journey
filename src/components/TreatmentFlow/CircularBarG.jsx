@@ -1,6 +1,6 @@
 import React from 'react';
 
-const CircularBar = ({ 
+const CircularBarG = ({ 
   outerRadius = 80, 
   arcWidth = 25, 
   percentage_def = 75,
@@ -481,4 +481,4 @@ const CircularBar = ({
   );
 };
 
-export default CircularBar;
+export default CircularBarG;

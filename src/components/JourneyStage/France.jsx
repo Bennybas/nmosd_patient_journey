@@ -1,12 +1,18 @@
 import React, { useState } from 'react';
 import { Card } from '../ui/card';
-
+import {
+  BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend,
+  LineChart, Line, PieChart, Pie, Cell, ResponsiveContainer, RadialBar,Text,RadialBarChart
+} from 'recharts';
 import {
   ArrowRight, Stethoscope, Building2, User, LineChart as LineChartIcon,
   ClipboardCheck, AlertTriangle, ChevronDown, ChevronUp,
   Bold
 } from 'lucide-react';
+import TreatmentSwitch from '../TreatmentFlow/TreatmentSwitchF.jsx'
+import CircularBarF from '../TreatmentFlow/CircularBarF.jsx'
 import SankeyDiagramF from '../sankey/sankeyF';
+import ChatbotButtonG from './ChatbotG';
 
 
 const France = ({ stage, metrics, barriers, findings }) => {
@@ -40,6 +46,168 @@ const France = ({ stage, metrics, barriers, findings }) => {
               motorFunctionData:motorFunctionData
             };
           }
+          case 2: {
+
+            const mriConfirmationData = [
+              { category: "No", Percentage: 34.78 },
+              { category: "Yes", Percentage: 65.22 },
+            ];
+           
+            const aqp4PositivityData = [
+              { AQP4_IgG_POSITIVE: "No", Female: 18, Male:5 },
+              { AQP4_IgG_POSITIVE: "Yes", Female: 82, Male: 95 },
+            ];
+  
+            const Diagnosisdata =[
+              { Diagnosis: "Acute Myelitis", Female: 80.00, Male: 20.00 },
+              { Diagnosis: "Acute brainstem syndrome", Female: 100.00, Male: 0.00 },
+              { Diagnosis: "Acute diencephalic clinical syndrome", Female: 100.00, Male: 0.00 },
+              { Diagnosis: "Area postrema syndrome", Female: 50.00, Male: 50.00 },
+              { Diagnosis: "Lumber puncture", Female: 72.22, Male: 27.78 },
+              { Diagnosis: "Optic neuritis", Female: 73.91, Male: 26.09 },
+              { Diagnosis: "Symptomatic cerebral syndrome", Female: 40.00, Male: 60.00 }
+            ];
+  
+   
+            const complianceData = [
+              { name: '2020', Compliant: 29.17, NonCompliant: 70.83 },
+              { name: '2021', Compliant: 14.81, NonCompliant: 85.19 },
+              { name: '2022', Compliant: 1.69, NonCompliant: 98.31 },
+            ];      
+            
+            const MisDiagnosis = [
+              {
+                name: 'Misdiagnosed Patients',
+                timeToConfirm: 665.5,
+                timeToStartDiagnosis: 91.6,
+              },
+              {
+                name: 'Correctly Diagnosed Patients',
+                timeToConfirm: 222.95,
+                timeToStartDiagnosis: 49.1,
+              },
+            ];
+  
+            const specialistData = [
+              {
+                specialist: 'Neurologist',
+                Patients: 65,
+                correctDiagnosis: 60,
+                misdiagnosed: 5,
+              },
+              {
+                specialist: 'Ophthalmologist',
+                Patients: 35,
+                correctDiagnosis: 30,
+                misdiagnosed: 5,
+              }
+            ];
+            const pathwayData = [
+              { name: 'Optic Neuritis', value: 50.0, color: '#3498db' },
+              { name: 'Lumbar Puncture', value: 15.625, color: '#2ecc71' },
+              { name: 'Acute Myelitis', value: 25.0, color: '#e74c3c' },
+              { name: 'Acute Brainstem', value: 3.125, color: '#f39c12' },
+              { name: 'Area Postrema', value: 3.125, color: '#1abc9c' },
+              { name: 'Acute Diencephalic', value: 3.125, color: '#34495e' }
+            ];
+            const testData = [
+              { name: 'Positive AQP4 Result', value: 82, color: '#2ecc71' },
+              { name: 'Negative AQP4 Result', value: 18, color: '#e74c3c' },
+            ];
+  
+            const correctPatientData = [
+              { year: 2011, delay: 11.000000 },
+              { year: 2016, delay: 31.000000 },
+              { year: 2018, delay: 0 },
+              { year: 2020, delay: 0.750000 },
+              { year: 2021, delay: 38.000000 },
+              { year: 2022, delay: 0}
+            ];
+            
+            const misdiagnosisData = [
+              { year: 2010, delay: 1474.0 },
+              { year: 2019, delay: 165.0 }
+            ];
+            
+          
+            
+            
+            
+            return{
+              type:'bar',
+              mriConfirmationData:mriConfirmationData,
+              aqp4PositivityData:aqp4PositivityData,
+              Diagnosisdata:Diagnosisdata,
+              complianceData:complianceData,
+              MisDiagnosis:MisDiagnosis,
+              specialistData:specialistData,
+              pathwayData:pathwayData,
+              testData:testData,
+              misdiagnosisData:misdiagnosisData,
+              correctPatientData:correctPatientData
+              
+            }
+          }
+          case 3:{
+          
+
+            const France_Treatment = [
+              { TreatmentName: 'Interferon', percentage: '3.23' },
+              { TreatmentName: 'Intravenous Immunglobulin', percentage: '6.45' },
+              { TreatmentName: 'Kortison', percentage: '9.68' },
+              { TreatmentName: 'Methylprednisolon', percentage: '25.81' },
+              { TreatmentName: 'Plasmapheresis / Plasma exchange', percentage: '9.68' },
+              { TreatmentName: 'Rituximab', percentage: '35.48' }
+            ];
+            
+            
+            
+            
+            // const relapse_rate = [
+            //   { TreatmentName: 'Azathioprine', 'After treatment (%)': 100, 'Before treatment (%)': 0 },
+            //   { TreatmentName: 'Crystalloid', 'After treatment (%)': 100, 'Before treatment (%)': 0 },
+            //   { TreatmentName: 'Cyclophosphamide', 'After treatment (%)': 66.7, 'Before treatment (%)': 33.3 },
+            //   { TreatmentName: 'Injektion', 'After treatment (%)': 100, 'Before treatment (%)': 0 },
+            //   { TreatmentName: 'Kortison', 'After treatment (%)': 100, 'Before treatment (%)': 0 },
+            //   { TreatmentName: 'Methylprednisolon', 'After treatment (%)': 40, 'Before treatment (%)': 60 },
+            //   { TreatmentName: 'Prednisolone', 'After treatment (%)': 33.3, 'Before treatment (%)': 66.7 },
+            //   { TreatmentName: 'Rituximab', 'After treatment (%)': 50, 'Before treatment (%)': 50 },
+            //   { TreatmentName: 'Soliris / eculizumab', 'After treatment (%)': 0, 'Before treatment (%)': 100 },
+            //   { TreatmentName: 'Tocilizumab', 'After treatment (%)': 0, 'Before treatment (%)': 100 },
+            // ];
+            const symptomSeverityGroupedData = [
+              { AgeGroup: "Age[20-40]", Wheelchair: 0.0625, Sightloss: 0.25 },
+              { AgeGroup: "Age[40-60]", Wheelchair: 0.2222, Sightloss: 0.5556 },
+              { AgeGroup: "Age[60-80]", Wheelchair: 1.0, Sightloss: 1.0 },
+            ];
+  
+            const Adherence = [
+            
+              { Adherence: 'Adherent Patient', Percentage: 82.35, fill: '#ffc658' },
+              { Adherence: 'Non Adherent Patient', Percentage: 17.65, fill: '#a4de6c' }
+            ];
+            const relapseTimingData = [
+              { category: "After treatment", Percentage: 57.45 },
+              { category: "Before treatment", Percentage: 42.55 },
+            ];
+  
+            const relapserate = [
+              { year: 2019, rate: 26.08 },
+              { year: 2020, rate: 42.96 },
+              { year: 2021, rate: 14.64 },
+              { year: 2022, rate: 15.47 },
+             
+            ];
+            
+            return{
+              type:'pie',
+              France_Treatment:France_Treatment,
+              Adherence:Adherence,
+              symptomSeverityGroupedData:symptomSeverityGroupedData,
+              relapseTimingData:relapseTimingData,
+              relapserate:relapserate
+            }
+          }
     }
   };
 
@@ -47,7 +215,7 @@ const France = ({ stage, metrics, barriers, findings }) => {
     const chartConfig = getChartData();
     if (!chartConfig) return null;
 
-    const { type, title,} = chartConfig;
+    const {  type, title,Diag_Age,MisDiagnosis,aqp4PositivityData,specialistData,France_Treatment,relapserate,Adherence,complianceData,pathwayData,testData,correctPatientData,misdiagnosisData} = chartConfig;
 
     switch (type) {
       case 'line':
@@ -58,6 +226,349 @@ const France = ({ stage, metrics, barriers, findings }) => {
           
         </div>
       )
+      
+      case 'bar':
+        return(
+          <div className="w-full space-y-6">
+
+            <div className="grid grid-cols-3 gap-8">
+              <div className="p-6">
+              <h4 className="text-sm font-medium text-gray-900"> Diagnostic Accuracy by Medical Specialists</h4>
+              <div className="aspect-[4/3] w-full">
+              <ResponsiveContainer width="100%" height={400}>
+                  <BarChart 
+                    data={specialistData}
+                    layout="vertical"
+                    margin={{ left: 20, right: 20, bottom: 20 }}
+                    >
+                    <CartesianGrid strokeDasharray="3 3" horizontal />
+                    <XAxis type="number" />
+                    <YAxis dataKey="specialist" angle='-55'type="category" />
+                    <Tooltip 
+                      formatter={(value, name, props) => {
+                        switch(name) {
+                          case 'correctDiagnosis': return [`${value}%`, 'Correct Diagnosis'];
+                          case 'misdiagnosed': return [`${value}%`, 'Misdiagnosed'];
+                          default: return [value, name];
+                        }
+                      }}
+                    />
+                    <Legend 
+                      verticalAlign="top" 
+                      layout="horizontal" 
+                      align="center"
+                    />
+                    <Bar 
+                      dataKey="correctDiagnosis" 
+                      stackId="a" 
+                      fill="#2ecc71" 
+                      name="Correct Diagnosis"
+                    />
+                    <Bar 
+                      dataKey="misdiagnosed" 
+                      stackId="a" 
+                      fill="#e74c3c" 
+                      name="Misdiagnosed"
+                    />
+                  </BarChart>
+                </ResponsiveContainer>
+
+              </div>
+              </div>
+
+              <div className="p-6">
+              <h4 className="text-sm font-medium text-gray-900"> Diagnosis Pathway Distribution</h4>
+              <div className="aspect-[4/3] w-full">
+              <ResponsiveContainer width="100%" height={400}>
+                <BarChart data={pathwayData}>
+                  <XAxis dataKey="name" angle={-37} textAnchor="end" interval={0} height={100} />
+                  <YAxis />
+                  <Tooltip />
+                  <Bar dataKey="value" fill="#3498db">
+                    {pathwayData.map((entry) => (
+                      <Cell key={entry.name} fill={entry.color} />
+                    ))}
+                  </Bar>
+                </BarChart>
+              </ResponsiveContainer>
+
+              </div>
+              </div>
+
+              <div className="p-6 bg-white">
+                <h4 className="text-sm font-medium text-gray-900 mb-4">
+                  AQP4 Test Results Distribution
+                </h4>
+                <div className="aspect-[4/3] w-full relative">
+                  <ResponsiveContainer width="100%" height={350}>
+                    <PieChart>
+                      <Pie
+                        data={testData}
+                        dataKey="value"
+                        nameKey="name"
+                        cx="50%"
+                        cy="50%"
+                        innerRadius={80}  // Reduced inner radius
+                        outerRadius={130} // Increased outer radius
+                        paddingAngle={5}
+                        startAngle={90}   // Explicitly set start angle
+                        endAngle={-270}   // Explicitly set end angle
+                        
+                      >
+                        {testData.map((entry) => (
+                          <Cell 
+                            key={entry.name} 
+                            fill={entry.color} 
+                            stroke="#ffffff"  // White border to ensure visibility
+                            strokeWidth={2}
+                          />
+                        ))}
+                      </Pie>
+                      <Tooltip 
+                        contentStyle={{ 
+                          backgroundColor: '#f5f5f5', 
+                          border: '1px solid #d5d5d5' 
+                        }}
+                        formatter={(value, name) => [`${value}%`, name]}
+                      />
+                      <Legend 
+                        layout="centre"
+                        verticalAlign="bottom"
+                        align="right"
+                        iconType="circle"
+                      />
+                    </PieChart>
+                  </ResponsiveContainer>
+                </div>
+              </div>
+            </div>
+
+            <div className="grid grid-cols-3 gap-6">
+              <Card className="p-6">
+              <h4 className="text-sm font-medium text-gray-700">Time Delays in NMOSD Diagnosis</h4>
+              <div className="aspect-[4/3] w-full">
+              <ResponsiveContainer width="100%" height="100%">
+                  <LineChart>
+                    <CartesianGrid strokeDasharray="3 3" />
+                    <XAxis 
+                      dataKey="year" 
+                      type="number" 
+                      domain={[2017, 2022]} 
+                      tickFormatter={(value) => value.toString()}
+                    />
+                    <YAxis label={{ value: 'Delay', angle: -90, position: 'insideLeft' }} />
+                    <Tooltip 
+                      labelFormatter={(label) => `Year: ${label}`}
+                      formatter={(value, name) => [value, name]}
+                    />
+                    <Legend />
+                    <Line 
+                      data={misdiagnosisData} 
+                      dataKey="delay" 
+                      name="Misdiagnosis Delay" 
+                      stroke="#FF6384" 
+                      activeDot={{ r: 8 }}
+                    />
+                    <Line 
+                      data={correctPatientData} 
+                      dataKey="delay" 
+                      name="Correct Patient Delay" 
+                      stroke="#36A2EB" 
+                      activeDot={{ r: 8 }}
+                    />
+                  </LineChart>
+                </ResponsiveContainer>
+              </div>
+              </Card>
+
+
+              <Card className="p-6">
+              <h4 className="text-sm font-medium text-gray-700">Compliance rate</h4>
+              <div className="aspect-[4/3] w-full" style={{ width: '100%', height: '400px', backgroundColor: 'white', padding: '20px', boxSizing: 'border-box' }}>
+              <ResponsiveContainer width="100%" height={300}>
+                <LineChart data={complianceData}>
+                  <XAxis dataKey="name" />
+                  <YAxis />
+                  <Tooltip 
+                    formatter={(value, name) => [`${value.toFixed(2)}%`, name]}
+                  />
+                  <Legend />
+                  <Line 
+                    type="monotone" 
+                    dataKey="Compliant" 
+                    stroke="#28a745" 
+                    strokeWidth={3}
+                  />
+                  <Line 
+                    type="monotone" 
+                    dataKey="NonCompliant" 
+                    stroke="#f44336" 
+                    strokeWidth={3}
+                  />
+                </LineChart>
+              </ResponsiveContainer>
+
+              </div>
+              </Card>
+
+
+
+              <Card className="p-6">
+              <h4 className="text-sm font-medium text-gray-700">AQP4-IgG Positivity Rates by Gender</h4>
+                <div className="aspect-[4/3] w-full" style={{ width: '100%', height: '400px', backgroundColor: 'white', padding: '20px', boxSizing: 'border-box' }}>
+                <ResponsiveContainer width="100%" height={400}>
+                  <BarChart
+                    data={aqp4PositivityData}
+                    margin={{ top: 20, right: 30, left: 20, bottom: 20 }}
+                  >
+                    <CartesianGrid strokeDasharray="3 3" />
+                    <XAxis dataKey="AQP4_IgG_POSITIVE" />
+                    <YAxis />
+                    <Tooltip formatter={(value) => `${value}%`} />
+                    <Legend />
+
+                    {/* Bar for Female */}
+                    <Bar
+                      dataKey="Female"
+                      fill="#ff9999" // Color for Female
+                      name="Female"
+                    />
+                    
+                    {/* Bar for Male */}
+                    <Bar
+                      dataKey="Male"
+                      fill="#66b3ff" // Color for Male
+                      name="Male"
+                    />
+                  </BarChart>
+                </ResponsiveContainer>
+                </div>
+              </Card>
+
+            </div>
+
+          </div>
+        )
+        case 'pie':
+        return(
+          <div className="w-full space-y-6">
+
+            <div className="grid grid-cols-1 gap-8">
+            <h3 className="text-sm font-medium text-gray-900" style={{textAlign:'center',fontSize:'25px'}}> Treatment Flow</h3>
+              <div className="p-6" style={{marginBottom:'200px'}}>
+              < CircularBarF percentage={64} percentage1={70}  percentage2={40} percentage3={15} percentage4={24}  />
+              </div>
+            </div>
+           
+            <div className="grid gap-8">
+              <Card className="p-6">
+                <h4 className="text-sm font-medium text-gray-700">Treatment Distribution</h4>
+                <div className="h-[500] w-full">
+                  <ResponsiveContainer width="100%" height={400}>
+                    <BarChart data={France_Treatment}>
+                      <CartesianGrid strokeDasharray="3 3" />
+                      <XAxis dataKey="TreatmentName" />
+                      <YAxis type="number" domain={[0, 40]} tickFormatter={(value) => `${value}%`} />
+                      <Tooltip />
+                      <Legend />
+                      
+                      {/* Bar that automatically scales based on percentage */}
+                      <Bar dataKey="percentage" fill="#4CAF50">
+                        {/* Adding text inside the Bar component for correct scaling */}
+                        {France_Treatment.map((entry, index) => {
+                          const barWidth = 40;
+                          const xPos = index * (barWidth + 10) + barWidth / 2;
+                          const barHeight = (entry.percentage / 100) * 400; // bar height based on percentage
+                          const yPos = 400 - barHeight - 10; // Positioning text above the bar
+
+                          return (
+                            <Text
+                              key={index}
+                              x={xPos}
+                              y={yPos}
+                              fill="#000"
+                              fontSize={14}
+                              textAnchor="middle"
+                            >
+                              {entry.percentage}%
+                            </Text>
+                          );
+                        })}
+                      </Bar>
+                    </BarChart>
+                  </ResponsiveContainer>
+                </div>
+              </Card>
+            </div>
+
+
+            <div className="grid grid-cols-2 gap-8">
+              <Card className="p-6">
+              <h4 className="text-sm font-medium text-gray-700">Adherence Rate</h4>
+                <div className="aspect-[4/3] w-full">
+                <ResponsiveContainer width="100%" height="100%">
+                      <PieChart>
+                        <Pie
+                          data={Adherence}
+                          cx="50%"
+                          cy="50%"
+                          innerRadius="60%"
+                          outerRadius="80%"
+                          paddingAngle={5}
+                          dataKey="Percentage" 
+                          nameKey="Adherence" 
+                        >
+                          {Adherence.map((entry, index) => (
+                            <Cell key={`cell-${index}`} fill={entry.fill} />
+                          ))}
+                        </Pie>
+
+                        
+                        <Tooltip
+                          formatter={(value, _, props) => `${value}%`}
+                          contentStyle={{ backgroundColor: '#fff', borderRadius: '8px' }}
+                        />
+
+                        <Legend
+                          layout="horizontal"
+                          align="center"
+                          verticalAlign="bottom"
+                          formatter={(value, entry) => entry.payload.Adherence}
+                        />
+                      </PieChart>
+                    </ResponsiveContainer>
+                </div>
+              </Card>
+
+              <Card className="p-6">
+              <h4 className="text-sm font-medium text-gray-700">Relapse Timing Distribution</h4>
+                <div className="aspect-[4/3] w-full">
+                  <ResponsiveContainer width="95%" height={400}>
+                    <LineChart data={relapserate}>
+                      <CartesianGrid strokeDasharray="3 3" />
+                      <XAxis dataKey="year" />
+                      <YAxis />
+                      <Tooltip  />
+                      <Legend />
+                      <Line
+                        type="monotone"
+                        dataKey="rate"
+                        stroke="#8884d8"
+                        strokeWidth={2}
+                        dot={{ r: 5 }}
+                      />
+                    </LineChart>
+                  </ResponsiveContainer>
+                </div>
+              </Card>
+
+              </div>
+
+              <div className="grid grid-cols-1 gap-6">
+              < TreatmentSwitch />
+            </div>
+          </div>
+        )
     }
     }
 
@@ -101,7 +612,6 @@ const France = ({ stage, metrics, barriers, findings }) => {
     </a>
   );
 };
-
 
   
 return (
@@ -231,6 +741,7 @@ return (
     </div>
     
     <div className="absolute left-8 bottom-0 w-0.5 h-8 bg-[#8295ae]" />
+    <ChatbotButtonG />
   </div>
 );
 };

@@ -11,8 +11,9 @@ import {
   ImageOff
 } from 'lucide-react';
 import SankeyDiagramG from '../sankey/sankeyDiagG';
-import TreatmentSwitch from '../TreatmentFlow/Femaleflow.jsx'
-import CircularBar from '../TreatmentFlow/Maleflow.jsx'
+import TreatmentSwitch from '../TreatmentFlow/TreatmentSwitchG.jsx'
+import CircularBar from '../TreatmentFlow/CircularBarG.jsx'
+import ChatbotButtonG from './ChatbotG.jsx';
 
 
 const German = ({ stage, metrics, barriers, findings }) => {
@@ -159,22 +160,26 @@ const German = ({ stage, metrics, barriers, findings }) => {
           }
         }
         case 3:{
-          const treatmentNonoral =[
-            { name: "Rituximab", percentage: 24.31 },
-            { name: "Prednisolone", percentage: 10.19 },
-            { name: "Methylprednisolon", percentage: 10.58 },
-            { name: "Steroide", percentage: 4.7 },
-            { name: "Soliris / eculizumab", percentage: 22.35 },
-            { name: "Crystalloid", percentage: 11.76 }
-          ];
-          const oralTreatment = [
-            { name: "Prednisolone", percentage: 39.85 },
-            { name: "Kortison", percentage: 10.14 },
-            { name: "Decortin", percentage: 7.24 },
-            { name: "Steroide", percentage: 19.56 },
-            { name: "Methylprednisolon", percentage: 4.34 },
-            { name: "Azathioprine", percentage: 13.76 }
-          ];
+          
+
+          const germ_Treament = [
+            { TreatmentName: 'Azathioprine', percentage: '2.33' },
+            { TreatmentName: 'Crystalloid', percentage: '4.65' },
+            { TreatmentName: 'Cyclophosphamide', percentage: '4.65' },
+            { TreatmentName: 'Infusion', percentage: '2.33' },
+            { TreatmentName: 'Injektion', percentage: '2.33' },
+            { TreatmentName: 'Kortison', percentage: '6.98' },
+            { TreatmentName: 'Methylprednisolon', percentage: '13.95' },
+            { TreatmentName: 'Plasmapheresis', percentage: '2.33' },
+            { TreatmentName: 'Prednisolone', percentage: '11.63' },
+            { TreatmentName: 'Rituximab', percentage: '27.91' },
+            { TreatmentName: 'Soliris / eculizumab', percentage: '9.30' },
+            { TreatmentName: 'Steroide', percentage: '6.98' },
+            { TreatmentName: 'Tocilizumab', percentage: '2.33' },
+            { TreatmentName: 'Triamcinolon', percentage: '2.33' },
+            { TreatmentName: 'Urbason', percentage: '2.33' }
+          ]
+          
           
           // const relapse_rate = [
           //   { TreatmentName: 'Azathioprine', 'After treatment (%)': 100, 'Before treatment (%)': 0 },
@@ -196,8 +201,8 @@ const German = ({ stage, metrics, barriers, findings }) => {
 
           const Adherence = [
           
-            { Adherence: 'Adherent Patient', Percentage: 88.10, fill: '#ffc658' },
-            { Adherence: 'Non Adherent Patient', Percentage: 11.90, fill: '#a4de6c' }
+            { Adherence: 'Adherent Patient', Percentage: 72, fill: '#ffc658' },
+            { Adherence: 'Non Adherent Patient', Percentage: 28, fill: '#a4de6c' }
           ];
           const relapseTimingData = [
             { category: "After treatment", Percentage: 57.45 },
@@ -212,8 +217,8 @@ const German = ({ stage, metrics, barriers, findings }) => {
           ];
           return{
             type:'pie',
-            treatmentNonoral:treatmentNonoral,
-            oralTreatment:oralTreatment,
+            germ_Treament:germ_Treament,
+            
             Adherence:Adherence,
             symptomSeverityGroupedData:symptomSeverityGroupedData,
             relapseTimingData:relapseTimingData,
@@ -228,7 +233,7 @@ const German = ({ stage, metrics, barriers, findings }) => {
     const chartConfig = getChartData();
     if (!chartConfig) return null;
 
-    const { type, title,Diag_Age,MisDiagnosis,aqp4PositivityData,specialistData,treatmentNonoral,relapserate,oralTreatment,Adherence,Diagnosisdata,complianceData,pathwayData,testData,correctPatientData,misdiagnosisData} = chartConfig;
+    const { type, title,Diag_Age,MisDiagnosis,aqp4PositivityData,specialistData,germ_Treament,relapserate,oralTreatment,Adherence,Diagnosisdata,complianceData,pathwayData,testData,correctPatientData,misdiagnosisData} = chartConfig;
 
     switch (type) {
       case 'line':
@@ -457,54 +462,6 @@ const German = ({ stage, metrics, barriers, findings }) => {
               </Card>
 
             </div>
-           
-            {/* <div className="grid grid-cols-2 gap-8">
-            <Card className="p-6">
-              <h4 className="text-sm font-medium text-gray-700">Diagnosis Distribution By Gender</h4>
-                <div className="aspect-[4/3] w-full">
-
-                <ResponsiveContainer width="100%" height={400}>
-                  <BarChart data={Diagnosisdata}>
-                    <CartesianGrid strokeDasharray="3 3" />
-                    <XAxis dataKey="Diagnosis" />
-                    <YAxis />
-                    <Tooltip  />
-                    <Legend />
-
-                    <Bar dataKey="Female" stackId="a" fill="#8884d8" />
-                    <Bar dataKey="Male" stackId="a" fill="#82ca9d" />
-                  </BarChart>
-                </ResponsiveContainer>
-                </div>
-              </Card>
-
-              <Card className="p-6">
-              <h4 className="text-sm font-medium text-gray-700">Diagnosis Distribution Percentage by Age Category</h4>
-                <div className="aspect-[4/3] w-full">
-
-
-                <ResponsiveContainer width="100%" height={400}>
-                  <BarChart data={Diag_Age} margin={{ top: 20, right: 30, left: 20, bottom: 5 }}>
-                    <CartesianGrid strokeDasharray="3 3" />
-                    <XAxis dataKey="Diagnosis" />
-                    <YAxis />
-                    <Tooltip />
-                    <Legend />
-                    
-                    
-                    <Bar dataKey="Below0" stackId="a" fill="#8884d8" />
-                    <Bar dataKey="0-19" stackId="a" fill="#82ca9d" />
-                    <Bar dataKey="20-39" stackId="a" fill="#ffc658" />
-                    <Bar dataKey="40-59" stackId="a" fill="#d0ed57" />
-                    <Bar dataKey="60+" stackId="a" fill="#ff7300" />
-                  </BarChart>
-                </ResponsiveContainer>
-                </div>
-              </Card>
-
-            </div> */}
-
-
 
           </div>
         )
@@ -519,71 +476,45 @@ const German = ({ stage, metrics, barriers, findings }) => {
               </div>
             </div>
            
-            <div className="grid grid-cols-2 gap-8">
+            <div className="grid gap-8">
               <Card className="p-6">
-              <h4 className="text-sm font-medium text-gray-700">Treatment Distribution (Non-Oral)</h4>
-                <div className="aspect-[4/3] w-full">
-                <ResponsiveContainer width="100%" height={400}>
-                  <PieChart>
-                    <Pie
-                      data={treatmentNonoral}
-                      dataKey="percentage"
-                      nameKey="name"
-                      cx="50%"
-                      cy="50%"
-                      outerRadius={150}
-                      label
-                    >
-                      {treatmentNonoral.map((entry, index) => (
-                        <Cell key={`cell-${index}`} fill={['#82ca9d', '#8884d8', '#dce3f1', '#f8d7e3', '#f1c7b7','#ffc658','#a4de6c',
-                          '#d0ed57',
-                          '#ff8042',
-                          '#8dd1e1', 
-                          '#ffc0cb', 
-                          '#adff2f', 
-                          '#ffbb28', ][index]} />
-                      ))}
-                    </Pie>
-                    <Tooltip formatter={(value) => `${value}%`} />
-                    <Legend />
-                  </PieChart>
-                </ResponsiveContainer>
+                <h4 className="text-sm font-medium text-gray-700">Treatment Distribution</h4>
+                <div className="h-[500] w-full">
+                  <ResponsiveContainer width="100%" height={400}>
+                    <BarChart data={germ_Treament}>
+                      <CartesianGrid strokeDasharray="3 3" />
+                      <XAxis dataKey="TreatmentName" />
+                      <YAxis type="number" domain={[0, 40]} tickFormatter={(value) => `${value}%`} />
+                      <Tooltip />
+                      <Legend />
+                      
+                      {/* Bar that automatically scales based on percentage */}
+                      <Bar dataKey="percentage" fill="#4CAF50">
+                        {/* Adding text inside the Bar component for correct scaling */}
+                        {germ_Treament.map((entry, index) => {
+                          const barWidth = 40;
+                          const xPos = index * (barWidth + 10) + barWidth / 2;
+                          const barHeight = (entry.percentage / 100) * 400; // bar height based on percentage
+                          const yPos = 400 - barHeight - 10; // Positioning text above the bar
+
+                          return (
+                            <Text
+                              key={index}
+                              x={xPos}
+                              y={yPos}
+                              fill="#000"
+                              fontSize={14}
+                              textAnchor="middle"
+                            >
+                              {entry.percentage}%
+                            </Text>
+                          );
+                        })}
+                      </Bar>
+                    </BarChart>
+                  </ResponsiveContainer>
                 </div>
               </Card>
-
-
-              
-              <Card className="p-6">
-              <h4 className="text-sm font-medium text-gray-700">Treatment Distribution (Oral)</h4>
-                <div className="aspect-[4/3] w-full">
-                <ResponsiveContainer width="100%" height={400}>
-                  <PieChart>
-                    <Pie
-                      data={oralTreatment}
-                      dataKey="percentage"
-                      nameKey="name"
-                      cx="50%"
-                      cy="50%"
-                      outerRadius={150}
-                      label
-                    >
-                      {oralTreatment.map((entry, index) => (
-                        <Cell key={`cell-${index}`} fill={['#82ca9d', '#8884d8', '#dce3f1', '#f8d7e3', '#f1c7b7','#ffc658','#a4de6c',
-                          '#d0ed57',
-                          '#ff8042',
-                          '#8dd1e1', 
-                          '#ffc0cb', 
-                          '#adff2f', 
-                          '#ffbb28', ][index]} />
-                      ))}
-                    </Pie>
-                    <Tooltip formatter={(value) => `${value}%`} />
-                    <Legend />
-                  </PieChart>
-                </ResponsiveContainer>
-                </div>
-              </Card>
-
             </div>
 
 
@@ -600,21 +531,20 @@ const German = ({ stage, metrics, barriers, findings }) => {
                           innerRadius="60%"
                           outerRadius="80%"
                           paddingAngle={5}
-                          dataKey="Percentage" // Correct data key for percentages
-                          nameKey="Adherence" // Add the name key for tooltips and legends
+                          dataKey="Percentage" 
+                          nameKey="Adherence" 
                         >
                           {Adherence.map((entry, index) => (
                             <Cell key={`cell-${index}`} fill={entry.fill} />
                           ))}
                         </Pie>
 
-                        {/* Tooltip to display the correct percentage and treatment */}
+                        
                         <Tooltip
                           formatter={(value, _, props) => `${value}%`}
                           contentStyle={{ backgroundColor: '#fff', borderRadius: '8px' }}
                         />
 
-                        {/* Adjusted Legend */}
                         <Legend
                           layout="horizontal"
                           align="center"
@@ -625,27 +555,6 @@ const German = ({ stage, metrics, barriers, findings }) => {
                     </ResponsiveContainer>
                 </div>
               </Card>
-
-
-              {/* <Card className="p-6">
-              <h4 className="text-sm font-medium text-gray-700">Wheelchair and Sightloss severity</h4>
-              <div className="aspect-[4/3] w-full">
-              <ResponsiveContainer width="100%" height={300}>
-                <BarChart
-                  data={symptomSeverityGroupedData}
-                  margin={{ top: 20, right: 30, left: 20, bottom: 5 }}
-                >
-                  <CartesianGrid strokeDasharray="3 3" />
-                  <XAxis dataKey="AgeGroup" />
-                  <YAxis label={{ value: 'Prevalence', angle: -90, position: 'insideLeft' }} /> 
-                  <Tooltip />
-                  <Legend />
-                  <Bar dataKey="Wheelchair" name="Wheelchair" stackId="a" fill="#8884d8" />
-                  <Bar dataKey="Sightloss" name="Sightloss" stackId="a" fill="#82ca9d" />
-                </BarChart>
-              </ResponsiveContainer>
-              </div>
-              </Card> */}
 
               <Card className="p-6">
               <h4 className="text-sm font-medium text-gray-700">Relapse Timing Distribution</h4>
@@ -666,40 +575,14 @@ const German = ({ stage, metrics, barriers, findings }) => {
                       />
                     </LineChart>
                   </ResponsiveContainer>
-                {/* <ResponsiveContainer width="100%" height={300}>
-                  <BarChart
-                    data={relapseTimingData}
-                    layout="vertical"
-                    margin={{ top: 20, right: 30, left: 20, bottom: 5 }}
-                  >
-                    <CartesianGrid strokeDasharray="3 3" />
-                    <XAxis type="number" domain={[0, 100]} />
-                    <YAxis type="category" dataKey="category" />
-                    <Tooltip formatter={(value) => `${value}%`} />
-                    <Legend />
-                    
-                    <Bar
-                      dataKey="Percentage"
-                      fill="#ff8042"  
-                      name="Relapse Timing"
-                    />
-                  </BarChart>
-                </ResponsiveContainer> */}
-
-
                 </div>
               </Card>
-
 
               </div>
 
               <div className="grid grid-cols-1 gap-6">
               < TreatmentSwitch />
             </div>
-
-              
-                
-
           </div>
         )
     }
@@ -874,6 +757,7 @@ return (
     </div>
     
     <div className="absolute left-8 bottom-0 w-0.5 h-8 bg-[#8295ae]" />
+    <ChatbotButtonG />
   </div>
 );
 };

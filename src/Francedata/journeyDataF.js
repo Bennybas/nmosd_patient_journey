@@ -83,8 +83,7 @@ export const journeyDataF = [
     "metrics": [
       { "value": "76%", "label": "AQP4-IgG Positivity Rate " },
       { "value": "100%", "label": "MRI Confirmation Rate" },
-      { "value": "", "label": "Average Relapse After Treatment " },
-      { "value": "", "label": "Average Relapse Before Treatment " }
+      
     ],
     "barriers": {
       "physician": [
