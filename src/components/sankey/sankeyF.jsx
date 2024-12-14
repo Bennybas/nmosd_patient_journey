@@ -170,7 +170,7 @@ const SankeyDiagramF = () => {
       .attr("text-anchor", "middle")
       .style("font-size", "16px")
       .style("font-weight", "bold")
-      .text("Patient Demographics and Healthcare Provider Distribution");
+      .text("Patient Flow through Specialists");
   }, []);
 
   return <svg ref={svgRef}></svg>;

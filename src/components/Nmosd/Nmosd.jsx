@@ -16,7 +16,7 @@ const NmosD = () => {
   const [isLoading, setIsLoading] = useState(false);  // Add loading state
   const handleBackClick = () => {
     setIsLoading(true);
-    window.location.href = '';
+    window.location.href = 'https://chryselys-pj-landing.onrender.com';
   };
 
 
